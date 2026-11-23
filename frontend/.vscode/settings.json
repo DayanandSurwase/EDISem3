@@ -1,0 +1,11 @@
+﻿{
+    "gitdoc.autoPush":  "onCommit",
+    "gitdoc.pushMode":  "push",
+    "gitdoc.autoPull":  "onPush",
+    "gitdoc.commitValidationLevel":  "error",
+    "gitdoc.autoCommitDelay":  60000,
+    "files.autoSaveDelay":  2000,
+    "gitdoc.pullOnOpen":  true,
+    "gitdoc.enabled":  true,
+    "files.autoSave":  "afterDelay"
+}
