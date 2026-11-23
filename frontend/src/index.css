@@ -1,0 +1,713 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   Vercel Official Geist Font Distribution (@font-face)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Vercel Geist Dark Color System Foundation
+   Authoritative Reference: https://vercel.com/geist/colors
+   ========================================================================== */
+
+:root {
+  /* Surfaces / Backgrounds */
+  --ds-background-100: #000000;
+  --ds-background-200: #000000;
+
+  /* Official Geist Gray Scale (Dark Mode) */
+  --ds-gray-100: #111111;
+  --ds-gray-200: #1a1a1a;
+  --ds-gray-300: #1f1f1f;
+  --ds-gray-400: #292929;
+  --ds-gray-500: #2e2e2e;
+  --ds-gray-600: #454545;
+  --ds-gray-700: #666666;
+  --ds-gray-800: #878787;
+  --ds-gray-900: #a0a0a0;
+  --ds-gray-1000: #ededed;
+
+  /* Geist Alpha Scale */
+  --ds-gray-alpha-100: rgba(255, 255, 255, 0.05);
+  --ds-gray-alpha-200: rgba(255, 255, 255, 0.09);
+  --ds-gray-alpha-300: rgba(255, 255, 255, 0.12);
+  --ds-gray-alpha-400: rgba(255, 255, 255, 0.15);
+  --ds-gray-alpha-500: rgba(255, 255, 255, 0.20);
+  --ds-gray-alpha-600: rgba(255, 255, 255, 0.28);
+  --ds-gray-alpha-700: rgba(255, 255, 255, 0.45);
+  --ds-gray-alpha-800: rgba(255, 255, 255, 0.58);
+  --ds-gray-alpha-900: rgba(255, 255, 255, 0.69);
+  --ds-gray-alpha-1000: rgba(255, 255, 255, 0.95);
+
+  /* Accents */
+  --ds-blue-700: #0071f6;
+  --ds-blue-800: #0060d6;
+  --ds-blue-900: #004bb5;
+  --ds-green-700: #22a06b;
+  --ds-green-800: #1b8055;
+  --ds-red-700: #e5484d;
+  --ds-red-800: #d83b40;
+  --ds-amber-700: #f5a623;
+
+  /* Legacy aliases mapped directly to Geist Dark tokens */
+  --s7-canvas: #000000;
+  --s7-paper: #000000;
+  --s7-line: #2e2e2e;
+  --s7-ink: #ededed;
+  --s7-muted: #878787;
+  --s7-sage: #0071f6;
+  --s7-sage-deep: #0060d6;
+  --s7-danger: #e5484d;
+  color-scheme: dark;
+}
+
+@theme {
+  --font-sans: 'Geist', 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Geist Pure Black & Neutral Charcoal Surfaces */
+  --color-canvas: #000000;
+  --color-elevated: #0a0a0a;
+  --color-card: #000000;
+  --color-card-hover: #111111;
+  --color-paper: #000000;
+  --color-mist: #0a0a0a;
+  --color-well: #111111;
+  --color-sidebar: #000000;
+
+  /* Subtle Gray Borders */
+  --color-line: #2e2e2e;
+  --color-faint: #454545;
+
+  /* High-Contrast Geist Ink */
+  --color-ink: #ededed;
+  --color-ink-soft: #a0a0a0;
+  --color-muted: #878787;
+
+  /* Meaningful Accents (Vercel Blue & Semantic Colors) */
+  --color-accent: #0071f6;
+  --color-accent-hover: #0060d6;
+  --color-sage: #0071f6;
+  --color-sage-deep: #0060d6;
+  --color-sage-ink: #0071f6;
+  --color-sage-mid: #3291ff;
+  --color-sage-pale: rgba(0, 113, 246, 0.15);
+
+  /* Semantic Status Indicators */
+  --color-success: #22a06b;
+  --color-ochre: #f5a623;
+  --color-ochre-ink: #f5a623;
+  --color-danger: #e5484d;
+  --color-danger-ink: #e5484d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #000000;
+  color: #ededed;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ds-blue-700);
+  outline-offset: 2px;
+}
+
+code,
+pre,
+kbd,
+samp,
+.font-mono-code {
+  font-family: var(--font-mono);
+  letter-spacing: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e2e2e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #454545;
+}
+
+input[type='range'].s7-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range'].s7-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: #2e2e2e;
+}
+
+input[type='range'].s7-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  background: #ededed;
+  border: 1px solid #454545;
+  margin-top: -5px;
+  transition: transform 150ms ease;
+}
+
+input[type='range'].s7-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type='range'].s7-range::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: #2e2e2e;
+}
+
+input[type='range'].s7-range::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  background: #ededed;
+  border: 1px solid #454545;
+}
+
+/* Film grain for the landing scene */
+.s7-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+  animation: s7-grain 0.5s steps(6) infinite;
+}
+
+@keyframes s7-grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s7-grain {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Monochromatic Geist CTA (Refined Button)
+   ========================================================================== */
+
+@layer components {
+  .shiny-cta {
+    --shiny-cta-bg: #000000;
+    --shiny-cta-bg-subtle: #1f1f1f;
+    --shiny-cta-fg: #ededed;
+    --shiny-cta-highlight: #ffffff;
+    --shiny-cta-highlight-subtle: #454545;
+    --shiny-cta-dot: #454545;
+    --animation: gradient-angle linear infinite;
+    --duration: 4s;
+    --shadow-size: 1px;
+    --transition: 200ms ease;
+
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline-offset: 2px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    text-align: center;
+    border: 1px solid #2e2e2e;
+    border-radius: 6px;
+    color: #ededed;
+    background: #000000;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+
+  .shiny-cta:hover {
+    background: #111111;
+    border-color: #454545;
+  }
+
+  .shiny-cta:active {
+    background: #1a1a1a;
+  }
+
+  .shiny-cta--primary {
+    background: #ededed;
+    color: #000000;
+    border-color: #ededed;
+    font-weight: 500;
+  }
+
+  .shiny-cta--primary:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .shiny-cta--primary:active {
+    background: #d4d4d4;
+  }
+
+  .shiny-cta--secondary {
+    background: #000000;
+    color: #ededed;
+    border-color: #2e2e2e;
+  }
+
+  .shiny-cta--secondary:hover {
+    background: #111111;
+    border-color: #454545;
+  }
+
+  .shiny-cta--lg {
+    padding: 0.625rem 1.25rem;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .shiny-cta--md {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+  }
+
+  .shiny-cta--sm {
+    padding: 0.35rem 0.75rem;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+  }
+
+  .shiny-cta:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+/* ==========================================================================
+   OFFICIAL VERCEL GEIST TYPOGRAPHY SYSTEM
+   Authoritative Reference: https://vercel.com/geist/typography
+   ========================================================================== */
+
+@layer utilities {
+  /* Headings: Geist Sans (font-weight: 600 or 700) */
+  .text-heading-72 {
+    font-family: var(--font-sans);
+    font-size: 72px;
+    line-height: 72px;
+    letter-spacing: -0.05em;
+    font-weight: 600;
+  }
+
+  .text-heading-64 {
+    font-family: var(--font-sans);
+    font-size: 64px;
+    line-height: 64px;
+    letter-spacing: -0.05em;
+    font-weight: 600;
+  }
+
+  .text-heading-56 {
+    font-family: var(--font-sans);
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -0.045em;
+    font-weight: 600;
+  }
+
+  .text-heading-48 {
+    font-family: var(--font-sans);
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+
+  .text-heading-40 {
+    font-family: var(--font-sans);
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+  }
+
+  .text-heading-32 {
+    font-family: var(--font-sans);
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  .text-heading-24 {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  .text-heading-20 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .text-heading-16 {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  .text-heading-14 {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  /* Copy: Geist Sans (font-weight: 400) */
+  .text-copy-24 {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .text-copy-20 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  .text-copy-18 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  .text-copy-16 {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-copy-14 {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    font-weight: 400;
+  }
+
+  .text-copy-13 {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .text-copy-13-mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  /* Labels: Geist Sans (font-weight: 500) */
+  .text-label-20 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  .text-label-18 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  .text-label-16 {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  .text-label-14 {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.005em;
+    font-weight: 500;
+  }
+
+  .text-label-13 {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
+
+  .text-label-12 {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
+
+  /* Labels (Mono): Geist Mono (font-weight: 500) */
+  .text-label-20-mono {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  .text-label-18-mono {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  .text-label-16-mono {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  .text-label-14-mono {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.005em;
+    font-weight: 500;
+  }
+
+  .text-label-13-mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
+
+  .text-label-12-mono {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
+
+  /* Buttons: Geist Sans (font-weight: 500) */
+  .text-button-16 {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  .text-button-14 {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    font-weight: 500;
+  }
+
+  .text-button-12 {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
+
+  /* Legacy type mappings harmonized to Geist */
+  .type-hero {
+    font-family: var(--font-sans);
+    font-size: clamp(3.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+  }
+
+  .type-h1 {
+    font-family: var(--font-sans);
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .type-h2 {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .type-card-title {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  .type-body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  .type-body-sm {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .type-nav {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  .type-label {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .type-meta {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .type-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .type-code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .type-code-sm {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}

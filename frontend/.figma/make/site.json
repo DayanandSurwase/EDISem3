@@ -1,0 +1,10 @@
+{
+  "description": "Helps software teams analyze code changes, predict risk, map dependencies, and select targeted regression tests to catch bugs faster and reduce testing time.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
